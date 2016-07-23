@@ -1,5 +1,7 @@
 package com.puhui.tinyspring.io.resource;
 
+import java.io.File;
+
 /**
  * Created by wentong on 2016/7/17.
  * 描述 bean io 的接口
@@ -28,4 +30,16 @@ public interface Resource {
      * @return 结果
      */
     boolean isOpen();
+
+    /**
+     * 得到文件名
+     * @return 文件名
+     */
+    String getFileName();
+
+    /**
+     * 得到文件
+     * @return 指定的文件
+     */
+    File getFile();
 }
