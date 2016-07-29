@@ -1,6 +1,8 @@
 package normal;
 
+import com.puhui.tinyspring.reader.impl.XmlFileReader;
 import com.puhui.tinyspring.utils.DomUtilsTest;
+import com.puhui.tinyspring.utils.PathUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -16,11 +18,14 @@ public class TestRoute {
     public void test() throws Exception{
         Package aPackage = TestRoute.class.getClass().getPackage();
         Package aPackage1 = DomUtilsTest.class.getPackage();
-        System.out.println(aPackage1);
+        System.out.println(PathUtils.getPackagePath(this.getClass()));
+        System.out.println(aPackage1.getName());
         System.out.println(aPackage);
 //        InputStream inputStream = TestRoute.class.getClass().getClassLoader().getResourceAsStream("");
-        String path1 = TestRoute.class.getClass().getResource("/").getPath();
+        String path1 = XmlFileReader.class.getClass().getResource("/").getPath();
         String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+        String fullPath = XmlFileReader.getReplacedPath(path1) + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + aPackage1.getName();
+        System.out.println(fullPath);
         URL location = TestRoute.class.getProtectionDomain().getCodeSource().getLocation();
         File currentDirectory = new File(new File(".").getAbsolutePath());
         System.out.println(currentDirectory.getCanonicalPath());
