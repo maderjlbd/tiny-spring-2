@@ -13,13 +13,11 @@ public class ClassPathResource implements Resource {
 
     private final String path;
     private Class<?> clazz;
-    private ClassLoader classLoader;
 
-    public ClassPathResource(String path, Class<?> clazz, ClassLoader classLoader) {
+    public ClassPathResource(String path, Class<?> clazz) {
         StringUtils.isEmpty(path);
         this.path = path;
         this.clazz = clazz;
-        this.classLoader = classLoader;
     }
 
     public boolean exists() {
