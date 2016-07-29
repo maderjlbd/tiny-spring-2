@@ -25,11 +25,6 @@ public class DomUtils {
         this.file = file;
     }
 
-//    private Document parse(URL url) throws DocumentException {
-//        SAXReader reader = new SAXReader();
-//        return reader.read(new File(""));
-//    }
-
     /**
      * 获得所有的带 bean 标示的 Element
      *
