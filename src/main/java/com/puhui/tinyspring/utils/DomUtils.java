@@ -6,7 +6,6 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class DomUtils {
 
     private static final String BEANS = "beans"; // beans 节点
     private static final String BEAN = "bean"; // bean 节点
-    private static final String CLASS = "class"; // bean 节点的 class 属性
+    private static final String DEFAULT_CLASS = "class"; // bean 节点的 class 属性
     private File file;
 
     public DomUtils(File file) {
@@ -39,7 +38,7 @@ public class DomUtils {
         List<Element> elements = root.elements(BEAN);
         List<Element> result = new ArrayList<>();
         for (Element ele : elements) {
-            if (ele.attribute(CLASS) != null) {
+            if (ele.attribute(DEFAULT_CLASS) != null) {
                 result.add(ele);
             }
         }
@@ -52,11 +51,14 @@ public class DomUtils {
      * @return class 属性集合
      * @throws DocumentException
      */
-    public List<String> getBeanValues() throws DocumentException {
+    public List<String> getBeanValues(String name) throws DocumentException {
+        if (name == null || name.isEmpty()) {
+            name = DEFAULT_CLASS;
+        }
         List<Element> beanElements = this.getBeanElements();
         List<String> result = new ArrayList<>(beanElements.size());
         for (Element beanElement : beanElements) {
-            result.add(beanElement.attributeValue(CLASS));
+            result.add(beanElement.attributeValue(name));
         }
         return result;
     }

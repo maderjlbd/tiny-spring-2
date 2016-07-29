@@ -1,7 +1,11 @@
 package com.puhui.tinyspring.reader;
 
+import org.dom4j.DocumentException;
+
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 /**
  * Created by puhui on 2016/7/29.
@@ -23,4 +27,13 @@ public interface ResourceReader {
      * @return value
      */
     String getValue(String name, String parent) throws URISyntaxException, MalformedURLException;
+
+    /**
+     * 通过指定名称和文件位置获取指定的值
+     * @param name 名称
+     * @param file 文件
+     * @return 值集合
+     * @throws DocumentException
+     */
+    List<String> getValues(String name, File file) throws DocumentException;
 }
