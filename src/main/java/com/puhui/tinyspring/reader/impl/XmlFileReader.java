@@ -18,6 +18,10 @@ public class XmlFileReader implements ResourceReader {
     private static final String WINDOWS_SEPARATOR = "\\";
     private final File file;
 
+    /**
+     * 通过文件创建 Reader
+     * @param file 文件
+     */
     public XmlFileReader(File file) {
         this.file = file;
         if (file == null || !file.exists() || !file.canRead()) {
@@ -25,14 +29,19 @@ public class XmlFileReader implements ResourceReader {
         }
     }
 
+    /**
+     * 通过 name 获取值
+     * @param name 名称
+     * @return 值
+     * @throws MalformedURLException
+     */
+    @Override
     public String getValue(String name) throws MalformedURLException {
         return getValue(name, null);
     }
 
+    @Override
     public String getValue(String name, String parent) throws MalformedURLException {
-//        String path = file.getPath();
-//        URL url = new URL(path);
-
         return null;
     }
 

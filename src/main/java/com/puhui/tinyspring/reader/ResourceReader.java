@@ -15,6 +15,7 @@ public interface ResourceReader {
 
     /**
      * 根据名称获取值
+     *
      * @param name 名称
      * @return 名称对应的值
      */
@@ -22,7 +23,8 @@ public interface ResourceReader {
 
     /**
      * 在 parent 节点下面获取指定节点的值
-     * @param name 指定节点
+     *
+     * @param name   指定节点
      * @param parent 父节点
      * @return value
      */
@@ -30,10 +32,12 @@ public interface ResourceReader {
 
     /**
      * 通过指定名称和文件位置获取指定的值
-     * @param name 名称
-     * @param file 文件
+     *
+     * @param name     名称
+     * @param file     文件
+     * @param nodeName 节点名称
      * @return 值集合
      * @throws DocumentException
      */
-    List<String> getValues(String name, File file) throws DocumentException;
+    List<String> getValues(String name, File file, String nodeName) throws DocumentException;
 }

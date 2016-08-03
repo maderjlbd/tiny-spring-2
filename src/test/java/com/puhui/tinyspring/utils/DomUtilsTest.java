@@ -17,7 +17,7 @@ public class DomUtilsTest {
     public void testGetBeanValues() throws Exception {
         File file = new File("F:\\projects\\tiny-spring\\src\\main\\resources\\beans.xml");
         DomUtils domUtils = new DomUtils(file);
-//        List<String> values = domUtils.getBeanValues();
-//        System.out.println(values.size());
+        List<String> values = domUtils.getBeanValues("scan");
+        System.out.println(values.size());
     }
 }

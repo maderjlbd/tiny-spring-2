@@ -2,4 +2,8 @@
 <beans>
     <bean name="first" class="com.puhui.tinyspring.bean.FirstBean"/>
     <bean name="second" class="com.puhui.tinyspring.bean.SecondBean"/>
+    <!-- 自定义的配置项，扫描的包的位置 -->
+    <scan>
+        <component-scan base-package="com.puhui.weixin" />
+    </scan>
 </beans>
